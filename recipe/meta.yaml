@@ -10,7 +10,7 @@ source:
   sha256: 4e57f39797fd5d9e2d22b8806a252d7c0106c936039d1e71c8c6b8008e695c0a
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install --no-deps --no-build-isolation . -vv
   number: 2
   skip: True  # [not linux]
 
@@ -43,6 +43,10 @@ about:
   license_file: LICENSE.txt
 
 extra:
+  anaconda-services:
+    ref: https://anaconda.zendesk.com/agent/tickets/47182
+    reason: Client request
   recipe-maintainers:
+    - anaobi
     - timkpaine
     - isuruf
