@@ -11,7 +11,7 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 3
   skip: True  # [not linux]
 
 requirements:
@@ -23,6 +23,7 @@ requirements:
   host:
     - python
     - pip
+    - setuptools
   run:
     - python
 
