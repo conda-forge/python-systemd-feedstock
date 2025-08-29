@@ -6,12 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/s/systemd-python/systemd-python-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/s/systemd-python/systemd-python-{{ version }}.tar.gz
   sha256: 4e57f39797fd5d9e2d22b8806a252d7c0106c936039d1e71c8c6b8008e695c0a
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 3
+  number: 4
   skip: True  # [not linux]
 
 requirements:
