@@ -23,7 +23,7 @@ requirements:
     - python
     - pip
     - setuptools
-    - libsystemd                None
+    - libsystemd
   run:
     - python
 
