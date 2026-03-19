@@ -11,19 +11,19 @@ source:
 
 build:
   script: {{ PYTHON }} -m pip install . -vv
-  number: 4
-  skip: True  # [not linux]
+  number: 5
+  skip: true  # [not linux]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ stdlib('c') }}
     - pkg-config
-    - {{ cdt('systemd-devel') }}
   host:
     - python
     - pip
     - setuptools
+    - libsystemd
   run:
     - python
 
