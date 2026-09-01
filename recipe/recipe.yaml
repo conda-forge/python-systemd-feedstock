@@ -1,0 +1,50 @@
+schema_version: 1
+
+context:
+  name: python-systemd
+  version: 235
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/s/systemd-python/systemd-python-${{ version }}.tar.gz
+  sha256: 4e57f39797fd5d9e2d22b8806a252d7c0106c936039d1e71c8c6b8008e695c0a
+
+build:
+  number: 6
+  skip: not linux
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  build:
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - pkg-config
+  host:
+    - python
+    - pip
+    - setuptools
+    - libsystemd
+  run:
+    - python
+
+tests:
+  - python:
+      imports:
+        - systemd
+        - systemd.journal
+        - systemd.daemon
+      pip_check: true
+
+about:
+  summary: Python interface for libsystemd
+  license: LGPL-2.1-or-later
+  license_file: LICENSE.txt
+  homepage: https://github.com/systemd/python-systemd
+
+extra:
+  recipe-maintainers:
+    - timkpaine
+    - isuruf
